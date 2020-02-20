@@ -2,7 +2,7 @@
 %the neurons conained in the Sheet unti the desity of the area-to-area
 %matrix reaches the network_density_threshold value. 
 %
-%This is a static mode of conenctivity formation since neurons are
+%This is a static mode of connectivity formation since neurons are
 %simultaneously present in the sheet and not added in a spatial or temporal
 %fashion.
 %
