@@ -51,7 +51,7 @@ The fields AllCorticalSheet and AllConnList contain all the info needed to conve
 
 Converting the neuron-to-neuron networks to region-to-region networks is achieved as follows:
 
-Generate a parcellation scheme of the synthetic sheet. E.g., containing 30 regions ("brain divisions"):
+Generate a parcellation scheme of the synthetic sheet. For instance, containing 50 regions ("brain divisions"):
 
 ```
 size_of_sheets=[30 30];
