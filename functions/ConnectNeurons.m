@@ -79,11 +79,7 @@ for attempt=1:length(sendneurons_x)
 
     x_current=sendneurons_x(attempt);
     y_current=sendneurons_y(attempt);
-    
-    %nr_neurons_in_position=CorticalSheet(x_current,y_current);
-    
-    %for n=1:length(nr_neurons_in_position)      
-     
+          
         %Pick a random point in a unit circle. 
         
         r=1; 
@@ -107,9 +103,6 @@ for attempt=1:length(sendneurons_x)
         
         %Which distances are smaller than the distance_thres?
         potential_connections=find(d <= distance_thres);
-        
-%         potential_connections(positions)=0;
-%         potential_connections=potential_connections(potential_connections~=0);
         
         %If more than a neuron can be a target then
         if(length(potential_connections) > 1)
@@ -160,21 +153,15 @@ for attempt=1:length(sendneurons_x)
         %The occupancy and establishment positions have been updated so
         %grab the neurons corresponding to the new status
         occupancy_ind=find((Occupancy.*CorticalSheet) < (CorticalSheet.*occupancy_thres));
-        %established_ind=find((Established == 0) | (Established < CorticalSheet));
 
         %How many neurons can establish connections?
-        %neurons_can_sendconn=intersect(neurons_ind,established_ind);
         neurons_can_receiveconn=intersect(neurons_ind,occupancy_ind);
 
-        %[sendneurons_x,sendneurons_y] = ind2sub(size(CorticalSheet),neurons_can_sendconn);
         [receiveneurons_x,receiveneurons_y] = ind2sub(size(CorticalSheet),neurons_can_receiveconn);
         
-        
-    %end
-    
+       
     %This means that the neurons have only ONE opportunity to establish
     %connections
-    %Established(x_current,y_current)=Established(x_current,y_current)+1;
        
     if(upper_limit==counter_upper_limit)
        break; 

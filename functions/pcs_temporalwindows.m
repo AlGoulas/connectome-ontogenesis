@@ -40,6 +40,23 @@
 %               positive integer denoting how many 
 %               in-connections a neutron can establish
 %
+%(used from the MakeCorticalSheet_TemporalWindows.m function)
+%
+%time_windows_mode: String parameter:
+%                   'gradients'
+%                       Timewindows are assigned based on the physical 
+%                       distance from the root(s)
+%
+%                   'random_timewindows'
+%                       Timewindows are assigned randomly at patches of 
+%                       the synthetic sheet (BETA!!! NOT TESTED) 
+%
+%                   'random_assignments_timewindows'
+%                       Timewindows are generated as in 'gradients', but 
+%                       afterwards they are reassigned at random to patches 
+%                       irrespective of their distance for the root(s)
+%
+%
 %Output:
 %
 %AllConnList:   1 x nr of time points cell containing all the structs 
@@ -87,13 +104,8 @@ Unique_MinDist=unique(MinDist);
 Occupancy=zeros(sizesheet);
 Established=zeros(sizesheet);
 
-%AllConnList.from=[];
-%AllConnList.to=[];
-
 AllConnList={};
 AllCorticalSheet=zeros(sizesheet(1), sizesheet(2), size(TimeWindows,2));
-
-
 
 for time=1:size(TimeWindows,2)
 
@@ -126,11 +138,9 @@ for time=1:size(TimeWindows,2)
         
         %Keep the cortical sheet status for this developmental timewindow
         AllCorticalSheet(:,:,time)=CurrentCorticalSheet;  
-        %AllSnapshotCorticalSheet(:,:,iter)=SnapshotCorticalSheet;
 
         %Now grow uniformly and at random connections from every neuron that
         %has populated the cortical sheet until this step.
-
         [ConnList, Occupancy, Established]=ConnectNeurons(sum(AllCorticalSheet,3), Occupancy, Established, occupancy_thres, distance_to_connect);
         AllConnList{time}=ConnList;  
     

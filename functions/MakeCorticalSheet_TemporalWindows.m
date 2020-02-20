@@ -133,7 +133,6 @@ if(strcmp(time_windows_mode,'random_assignments_timewindows'))
     %windows are now randomly assigned to patches, irrespective of the
     %distance of each patch from the root(s) of the gradients.
     idx=sub2ind(size_sheet,x,y);
-    %idx=idx(randperm(length(idx)));
     values=MinDist(:);
     values=values(randperm(length(values)));
     MinDist(idx)=values;
@@ -144,8 +143,6 @@ end
 %distances from the roots of gradients (or unique patches if we build random time windows).
 %Unique min distances
 unique_dist=unique(MinDist);
-%unique_dist_length=length(unique(MinDist));
-
 
 %Temporal scale
 total_t=0:temporal_resolution:1;

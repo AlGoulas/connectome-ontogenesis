@@ -1,6 +1,6 @@
 %The function creates a 2D cortical sheet of x and y dimensions with the
 %corresponding size and a specified number of areas.
-%--------------------------------------------------------------------------
+%
 %Input:    sheetxy: A 1d vector with 2 entries specifying the
 %                   X and Y dimensions of the cortical sheet 
 %                   e.g., [20 20]     
@@ -27,7 +27,7 @@ XY=[x y];
 
 indexes=1:size(XY,1);
 
-[x_sheet y_sheet]=find(~isnan(Areas));
+[x_sheet, y_sheet]=find(~isnan(Areas));
 
 for i=1:size(XY,1)
     

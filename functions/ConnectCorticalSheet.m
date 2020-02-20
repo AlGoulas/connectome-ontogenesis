@@ -63,7 +63,6 @@ while 1
     [ConnList, Established, Occupancy]=ConnectNeurons(Sheet, Occupancy, Established, occupancy_thres, distance_to_connect);%Careful with how the arguments are passed!
     AllConnList{iter}=ConnList;
     
-    %[C]=RunStatsOnAreaConnection(AllConnList, Sheet, Areas, length(unique(Areas)), [], 0);
     [C,~]=AssembleAreaWiseMatrix(AllConnList, Areas);
     kden=density_dir(C);
 
