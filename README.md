@@ -16,6 +16,8 @@ Download or clone this repository and add all the folders to your Matlab path.
 
 # Example
 
+Tested with Matlab 2016a.
+
 To generate synthetic neuronal networks, it is better to use the included functions in a wrapper function to generate networks across a range of parameters. An example of such wrapper function is included in the examples folder (generate_synthetic_nets_batch.m). Let's see how you can run this wrapper:
 
 ```
@@ -71,8 +73,6 @@ Note that Dist is the region-to-region distance matrix of the synthetic network.
 This conversion allows to compare the generate neuronal networks with empirical neuronal networks. E.g., if an empirical neuronal network is sumamrized as a 49x49 regional matrix, running the above conversion functions with regions=49 allows the direct quantiative comparisons of synthetic and empirical networks. 
 
 This property opens up many avenues to elucidate more regidly what exact mechanisms might give rise to the itnricate topology that is observed in biological neuronal networks across multiple species.
-
-Tested with Matlab 2016a.
 
 # Citation
 
