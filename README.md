@@ -10,6 +10,10 @@ The synthetic neuronal networks generated from this model can be subsequently di
 For details see:
 Goulas A, Betzel R, Hilgetag C (2019) Spatiotemporal ontogeny of brain wiring. Science Advances. 5(6):eaav9694. http://doi.org/10.1126/sciadv.aav9694
 
+# Installation
+
+Download or clone this repository and add all the folders to your Matlab path.
+
 # Example
 
 To generate synthetic neuronal networks, it is better to use the included functions in a wrapper function to generate networks across a range of parameters. An example of such wrapper function is included in the examples folder (generate_synthetic_nets_batch.m). Let's see how you can run this wrapper:
@@ -30,12 +34,12 @@ time_windows_mode='gradients';
 name='test';
 
 generate_synthetic_nets_batch(nr_of_sheets, size_of_sheets, nr_of_gradients, range_of_a, temporal_resolution, neuron_rate, neurons, distance_to_connect, occupancy_thres, time_windows_mode, name)
-
 ```
 
 The above wrapper function will create synthetic neuronal networks with the combination of the parameters range_of_a and nr_of_gradients. It will store the results in an orderly manner, that is, in seperate folders with the names of the parameters used as the names of the folders. 
 
 The above setup will generate the following folders in your current working folder in MATLAB: 
+
 alpha_0.2nr_of_gradients2, alpha_0.4nr_of_gradients2
 
 Each folder contains a struct named as name (here =test). These structs contain all the info on the generated neuronal networks. Load the struct in your workspace. The struct now appears with the name TotalData.
@@ -58,7 +62,6 @@ Based on the regional division, the geenrated network can be sumarized as a regi
 
 ```
 [C, Dist]=AssembleAreaWiseMatrix(TotalData(1).AllConnList, Areas)
-
 ```
 
 This will create a region-to-region connectome (neuronal network) with the first (TotalData(1)) synthetic network that was generated based on the regional divisions dictated by Areas.
@@ -68,6 +71,8 @@ Note that Dist is the region-to-region distance matrix of the synthetic network.
 This conversion allows to compare the generate neuronal networks with empirical neuronal networks. E.g., if an empirical neuronal network is sumamrized as a 49x49 regional matrix, running the above conversion functions with regions=49 allows the direct quantiative comparisons of synthetic and empirical networks. 
 
 This property opens up many avenues to elucidate more regidly what exact mechanisms might give rise to the itnricate topology that is observed in biological neuronal networks across multiple species.
+
+Tested with Matlab 2016a.
 
 # Citation
 
