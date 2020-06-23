@@ -1,5 +1,4 @@
-# Connectome ontogenesis
-Generative model of the spatiotemporal development of complex networks (brain connectomes)
+# Generative model of the spatiotemporal development of complex neural networks
 ![generative_model_neuronal_nets](generative_model_neuronal_nets.png)
 
 # Description
